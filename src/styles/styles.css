@@ -1,0 +1,13 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+body {
+  font-size: 16px;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+* {
+  box-sizing: content-box;
+  margin:0;
+  padding:0;
+}
