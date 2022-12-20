@@ -1,7 +1,3 @@
-// export enum Type {
-//   SOLID = 'solid',
-//   LIGHT = 'light',
-// } 
 import Classnames from 'classnames';
 import React from 'react';
 import styles from './_styles.module.css';
@@ -36,7 +32,6 @@ export const IconWrapper = (
       ...child?.props,
       className: Classnames(
         styles['sezy-icon'],
-        styles['sezy-icon-' + size],
         className,
       ),
       ...otherProps,

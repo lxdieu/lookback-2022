@@ -1,19 +1,34 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import Opening from "../Openning";
-import SeasonPackage from "../SeasonPackage";
+import SeasonPackage1 from "../SeasonPackage-1";
+import SeasonPackage2 from "../SeasonPackage-2";
+import SeasonPackage3 from "../SeasonPackage-3";
+import SeasonPackage4 from "../SeasonPackage-4";
 import * as Style from "./styles";
 
 const HomePage = ({ data }) => {
   const router = useRouter();
-  const { query } = router;
-  console.log(query.p);
-  const [curPack, setCurPack] = useState<number | null>(
-    Number(query.p) || null
-  );
+  const [packOpened, setPackOpened] = useState<number[]>([]);
+
+  useEffect(() => {
+    try {
+      const lsOpenedPack = window.localStorage.getItem("open_pack");
+      const parsed = lsOpenedPack ? JSON.parse(lsOpenedPack) : [];
+      setPackOpened(parsed);
+    } catch (e) {
+      console.log(e);
+    }
+  }, []);
 
   const handleSelectPack = (id: number) => {
-    console.log(router);
+    if (packOpened && !packOpened.includes(id)) {
+      window.localStorage.setItem(
+        "open_pack",
+        JSON.stringify([...packOpened, id])
+      );
+      setPackOpened([...packOpened, id]);
+    }
     router.push({
       pathname: router.pathname,
       query: {
@@ -23,14 +38,27 @@ const HomePage = ({ data }) => {
     });
   };
 
+  const listPack = [
+    <SeasonPackage1 data={data} key="pack_1" />,
+    <SeasonPackage2 data={data} key="pack_2" />,
+    <SeasonPackage3 data={data} key="pack_3" />,
+    <SeasonPackage4 data={data} packOpened={packOpened} key="pack_4" />,
+  ];
+
   return (
-    <div>
-      {router.query.p ? (
-        <SeasonPackage data={data}/>
+    <Style.Wrapper>
+      {router.query.p &&
+      Number(router.query.p) < 4 &&
+      Number(router.query.p) >= 0 ? (
+        listPack[router.query.p as keyof typeof listPack]
       ) : (
-        <Opening handleSelectPack={handleSelectPack} data={data} />
+        <Opening
+          handleSelectPack={handleSelectPack}
+          data={data}
+          packOpened={packOpened}
+        />
       )}
-    </div>
+    </Style.Wrapper>
   );
 };
 

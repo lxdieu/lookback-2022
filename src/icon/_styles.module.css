@@ -1,0 +1,12 @@
+.icon {
+  vertical-align: middle;
+  fill: var(--text-color);
+  user-select: none;
+  size:16px;
+}
+.icon .disabled {
+  fill: var(--text-disabled-color);
+  pointer-events: none;
+  user-select: none;
+}
+

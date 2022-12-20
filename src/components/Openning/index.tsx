@@ -2,17 +2,7 @@ import { useEffect, useState } from "react";
 import * as style from "./styles";
 
 const coverList = ["pack_1", "pack_2", "pack_3", "pack_4"];
-const Opening = ({ handleSelectPack, data }) => {
-  const [packOpened, setPackOpened] = useState<number[]>([]);
-  useEffect(() => {
-    try {
-      const lsOpenedPack = window.localStorage.get("open_pack");
-      const parsed = lsOpenedPack ? JSON.parse(lsOpenedPack) : [];
-      setPackOpened(parsed);
-    } catch (e) {
-      console.log(e);
-    }
-  }, []);
+const Opening = ({ handleSelectPack, data, packOpened }) => {
   const renderCover = coverList.map((item, idx) => (
     <style.PackCover
       key={`cover_img_${idx}`}

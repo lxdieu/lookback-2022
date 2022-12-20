@@ -23,7 +23,7 @@ export interface CarouselIProps {
   dot?: Dot;
   navigation?: Navigation;
   size?: "s" | "m" | "l";
-  deafultStep?: number; // slide will be shown
+  defaultStep?: number; // slide will be shown
   autoPlayTime?: number; //(second) no set no auto play
   isInfinity?: boolean;
   isFull?: boolean;
@@ -37,16 +37,16 @@ const Carousel = ({
   dot,
   navigation,
   size = "m",
-  deafultStep = 1,
+  defaultStep = 1,
   autoPlayTime,
-  isInfinity = true,
+  isInfinity = false,
   isFull = true,
   className,
   onChange,
   children,
   ...otherProps
 }: CarouselIProps) => {
-  const [step, setStep] = React.useState(deafultStep);
+  const [step, setStep] = React.useState(defaultStep);
   const intervalProps = {
     callbackFn: () => setNewStep(step, 1),
     seconds: autoPlayTime,
@@ -63,7 +63,7 @@ const Carousel = ({
 
   React.useEffect(() => {
     setStep(step);
-  }, [deafultStep]);
+  }, [defaultStep]);
 
   const prevClick = () => (isInfinity || step > 1) && setNewStep(step, -1);
   const nextClick = () =>
@@ -94,11 +94,7 @@ const Carousel = ({
   };
 
   const childrenCount = React.Children.count(children);
-  // const centerRange = Math.floor(childrenCount / 2);
-  // const centerPoint = childrenCount % 2 === 0 ? centerRange - 1 : centerRange;
-
-  // const slideItemIndex = _.range(childrenCount).map((v, i) => (((childrenCount + (step - centerRange) + i) - 1) % childrenCount) + 1);
-
+  console.log(childrenCount);
   const navigations = (() => {
     if (navigation?.type === "full") {
       return;
@@ -145,7 +141,7 @@ const Carousel = ({
                 styles[`sezy-carousel-dot-${dot?.size ?? "m"}`],
               ])}
               onClick={() => {
-                setStep(index + 1);
+                // setStep(index + 1);
               }}
             >
               {autoPlayTime && dot?.playtimeEffect && (
