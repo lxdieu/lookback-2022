@@ -8,7 +8,7 @@ RUN apk --update add git less openssh && \
 
 RUN apk add --no-cache libc6-compat
 WORKDIR /app
-COPY package.json yarn.lock ./
+COPY package.json ./
 #RUN yarn install --frozen-lockfile
 RUN yarn install
 
