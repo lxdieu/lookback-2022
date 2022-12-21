@@ -42,7 +42,7 @@ const HomePage = ({ data }) => {
     <SeasonPackage1 data={data} key="pack_1" />,
     <SeasonPackage2 data={data} key="pack_2" />,
     <SeasonPackage3 data={data} key="pack_3" />,
-    <SeasonPackage4 data={data} packOpened={packOpened} key="pack_4" />,
+    <SeasonPackage4 data={data} key="pack_4" />,
   ];
 
   return (

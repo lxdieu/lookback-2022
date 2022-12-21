@@ -22,8 +22,8 @@
     "baseUrl":".",
     "allowUnreachableCode": false,
     "allowUnusedLabels":false,
-    "noUnusedParameters":true,
-    "noUnusedLocals":true,
+    "noUnusedParameters":false,
+    "noUnusedLocals":false,
     "alwaysStrict":true
   },
   "include": [
