@@ -118,7 +118,7 @@ export const ContentOuterWrapper = styled.div`
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  bottom: 580px;
+  bottom: 680px;
   box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.3),
     0 0.0625rem 0.125rem rgba(0, 0, 0, 0.2);
   z-index: 4;
@@ -170,7 +170,7 @@ export const BackHomeArea = styled.div`
   background: none;
   transform: translate(-50%, -50%);
   z-index: 3;
-  border: 1px solid #000;
+  // border: 1px solid #000;
   cursor: pointer;
 `;
 
@@ -178,7 +178,7 @@ export const HscLogo = styled.img`
   height: 40px;
   width: auto;
   position: absolute;
-  left: calc(50% - 180px);
+  left: calc(50% - 260px);
   bottom: 32px;
 `;
 

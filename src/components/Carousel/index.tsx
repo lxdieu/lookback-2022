@@ -72,10 +72,18 @@ const Carousel = ({
   const itemsRef: any = React.useRef(null);
   const onFullClick = (e) => {
     if (navigation?.type === "full") {
-      e.clientX - itemsRef.current?.offsetLeft <
-      itemsRef.current?.offsetWidth / 2
-        ? prevClick()
-        : nextClick();
+      if (
+        e.clientX - itemsRef.current?.offsetLeft <
+        itemsRef.current?.offsetWidth / 2 - 80
+      ) {
+        prevClick();
+      }
+      if (
+        e.clientX - itemsRef.current?.offsetLeft >
+        itemsRef.current?.offsetWidth / 2 + 80
+      ) {
+        nextClick();
+      }
     }
   };
 
@@ -94,7 +102,6 @@ const Carousel = ({
   };
 
   const childrenCount = React.Children.count(children);
-  console.log(childrenCount);
   const navigations = (() => {
     if (navigation?.type === "full") {
       return;
@@ -141,7 +148,7 @@ const Carousel = ({
                 styles[`sezy-carousel-dot-${dot?.size ?? "m"}`],
               ])}
               onClick={() => {
-                // setStep(index + 1);
+                setStep(index + 1);
               }}
             >
               {autoPlayTime && dot?.playtimeEffect && (

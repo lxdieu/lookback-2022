@@ -170,7 +170,7 @@ export const BackHomeArea = styled.div`
   background: none;
   transform: translate(-50%, -50%);
   z-index: 3;
-  border: 1px solid #000;
+  // border: 1px solid #000;
   cursor: pointer;
 `;
 

@@ -1,7 +1,6 @@
 import React from "react";
 import type { NextPage } from "next";
 import Head from "next/head";
-import Script from "next/script";
 import { useRouter } from "next/router";
 import CryptoJS from "crypto-js";
 import { ICustomerData } from "src/interface";
@@ -21,7 +20,7 @@ const Home: NextPage = () => {
         return null;
       }
     })();
-
+  console.log(data);
   const examData: ICustomerData = {
     name: "Lã Xuân Diệu",
     email: "dieu.lx@hsc.com.vn",
@@ -43,8 +42,7 @@ const Home: NextPage = () => {
   //base64 to data
   const wordsDecrypted = CryptoJS.enc.Base64.parse(base64);
   var resultString = CryptoJS.enc.Utf8.stringify(wordsDecrypted);
-  console.log("resultString", resultString);
-  // console.log("decrypted", JSON.parse(resultString));
+
   return (
     <>
       <Head>
@@ -78,7 +76,6 @@ const Home: NextPage = () => {
         ></link>
       </Head>
       {data ? <HomePage data={data} /> : <NoData />}
-      <Script type="text/javascript" src="./scripts/zalo-sdk.js"></Script>
     </>
   );
 };
