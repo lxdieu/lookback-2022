@@ -55,6 +55,7 @@ const SeasonPackage2 = ({ data }) => {
           <img src="./images/season-2-img-3.png" alt="" />
           <img src="./images/season-2-bg-3.png" alt="" />
         </style.BackgroundLastImage>
+        <style.HscLogoHead src="./images/white-logo.svg" />
         <ShareGroup link={shareLink} />
       </style.Slide>
     </style.StyledCarousel>

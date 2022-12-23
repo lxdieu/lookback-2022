@@ -41,11 +41,11 @@ const SeasonPackage1 = ({ data }) => {
           </style.Content>
         </style.ContentOuterWrapper>
 
-        <style.BackgroundImage>
+        <style.BackgroundSecondImage>
           <img src="./images/season-1-img-2.png" alt="" />
           <img src="./images/season-1-bg-2.png" alt="" />
           <style.HscLogo src="./images/white-logo.svg" />
-        </style.BackgroundImage>
+        </style.BackgroundSecondImage>
 
         <ShareGroup link={shareLink} />
       </style.Slide>
@@ -55,6 +55,7 @@ const SeasonPackage1 = ({ data }) => {
           <img src="./images/season-1-img-3.png" alt="" />
           <img src="./images/season-1-bg-3.png" alt="" />
         </style.BackgroundLastImage>
+        <style.HscLogoHead src="./images/white-logo.svg" />
         <ShareGroup link={shareLink} />
       </style.Slide>
     </style.StyledCarousel>

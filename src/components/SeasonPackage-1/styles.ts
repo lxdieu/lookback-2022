@@ -47,7 +47,7 @@ export const BackgroundImage = styled.div`
       left: 50%;
       bottom: 100px;
       transform: translateX(-50%);
-      max-width: 320px;
+      max-width: 360px;
       width: 80%;
       z-index: 1;
     }
@@ -74,6 +74,16 @@ export const BackgroundImage = styled.div`
   }
 `;
 
+export const BackgroundSecondImage = styled(BackgroundImage)`
+  & img {
+    &:nth-child(1) {
+      bottom: 120px;
+      left: 440px;
+      transform: translate(0);
+    }
+  }
+`;
+
 export const BackgroundLastImage = styled.div`
   position: relative;
   overflow: hidden;
@@ -82,15 +92,17 @@ export const BackgroundLastImage = styled.div`
 
   & img {
     position: absolute;
-    top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
     &:nth-child(1) {
+      top: 88px;
+      transform: translateX(-50%);
       max-width: 480px;
       width: 80%;
       z-index: 1;
     }
     &:nth-child(2) {
+      top: 50%;
+      transform: translate(-50%, -50%);
       width: 100%;
       @media (min-width: 500px) {
         width: auto;
@@ -165,15 +177,13 @@ export const BackHomeArea = styled.div`
   width: 500px;
   position: absolute;
   content: "";
-  top: 70%;
+  top: 640px;
   left: 50%;
   background: none;
   transform: translate(-50%, -50%);
   z-index: 3;
-  // border: 1px solid #000;
   cursor: pointer;
 `;
-
 export const HscLogo = styled.img`
   height: 40px;
   width: auto;
@@ -185,4 +195,13 @@ export const HscLogo = styled.img`
 export const BackgroundVideo = styled.div`
   height: 100%;
   width: 100%;
+`;
+
+export const HscLogoHead = styled.img`
+  height: 40px;
+  width: auto;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 32px;
 `;
