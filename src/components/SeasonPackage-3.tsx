@@ -1,7 +1,7 @@
 import React from "react";
 import { useRouter } from "next/router";
 import * as style from "./styles";
-import ShareGroup from "../ShareGroup";
+import ShareGroup from "./ShareGroup";
 
 const SeasonPackage3 = ({ data }) => {
   const router = useRouter();
@@ -20,13 +20,12 @@ const SeasonPackage3 = ({ data }) => {
         <style.ContentOuterWrapper>
           <style.Content>
             <p className="big-text">{data.largest_stock}</p>
-            <p>rất được `ưu ái` chiếm tỷ trọng nhiều nhất trong danh mục</p>
+            <p>rất được &apos;ưu ái&apos; chiếm tỷ trọng nhiều nhất trong danh mục</p>
           </style.Content>
         </style.ContentOuterWrapper>
 
         <style.BackgroundImage>
-          <img src='./images/season-3-img-1.png' alt="" />
-          <img src='./images/season-3-bg-1.png' alt="" />
+          <img src='./images/season-3-1.jpg' alt="" />
           <style.HscLogo src="./images/white-logo.svg" />
         </style.BackgroundImage>
 
@@ -42,8 +41,7 @@ const SeasonPackage3 = ({ data }) => {
         </style.ContentOuterWrapper>
 
         <style.BackgroundImage>
-          <img src="./images/season-3-img-2.png" alt="" />
-          <img src="./images/season-3-bg-2.png" alt="" />
+          <img src="./images/season-3-2.jpg" alt="" />
           <style.HscLogo src="./images/white-logo.svg" />
         </style.BackgroundImage>
 
@@ -52,9 +50,9 @@ const SeasonPackage3 = ({ data }) => {
       <style.Slide>
         <style.BackHomeArea onClick={handleBackHome} />
         <style.BackgroundLastImage>
-          <img src="./images/season-3-img-3.png" alt="" />
-          <img src="./images/season-3-bg-3.png" alt="" />
+          <img src="./images/season-3-3.jpg" alt="" />
         </style.BackgroundLastImage>
+        <style.HscLogoHead src="./images/white-logo.svg" />
         <ShareGroup link={shareLink} />
       </style.Slide>
     </style.StyledCarousel>

@@ -1,9 +1,9 @@
 import React from "react";
 import { useRouter } from "next/router";
 import * as style from "./styles";
-import ShareGroup from "../ShareGroup";
+import ShareGroup from "./ShareGroup";
 
-const SeasonPackage4 = ({ data }) => {
+const SeasonPackage2 = ({ data }) => {
   const router = useRouter();
   const shareLink = `${window.location.origin}/?d=${router.query.d}`;
   const handleBackHome = () => {
@@ -14,19 +14,18 @@ const SeasonPackage4 = ({ data }) => {
     <style.StyledCarousel
       dot={{ sharp: "bar", playtimeEffect: true, placement: "t" }}
       navigation={{ type: "full" }}
-      autoPlayTime={600}
+      autoPlayTime={6}
     >
       <style.Slide>
         <style.ContentOuterWrapper>
           <style.Content>
-            <p className="big-text">{data.lastest_stock}</p>
-            <p>là mã khớp lệnh cuối cùng khép lại năm 2022</p>
+            <p className="big-text">{data.longest_stock}</p>
+            <p>được bạn &apos;ôm&apos; lâu nhất trong năm</p>
           </style.Content>
         </style.ContentOuterWrapper>
 
         <style.BackgroundImage>
-          <img src="./images/season-4-img-1.png" alt="" />
-          <img src="./images/season-4-bg-1.png" alt="" />
+          <img src="./images/season-2-1.jpg" alt="" />
           <style.HscLogo src="./images/white-logo.svg" />
         </style.BackgroundImage>
 
@@ -36,33 +35,28 @@ const SeasonPackage4 = ({ data }) => {
       <style.Slide>
         <style.ContentOuterWrapper>
           <style.Content>
-            <p>Khớp lệnh vào ngày</p>
-            <p className="big-text">{data.lastest_date}</p>
+            <p>và &apos;ôm&apos; trong</p>
+          <p className="big-text">{data.longest_hold_time} <span>ngày</span></p>
           </style.Content>
         </style.ContentOuterWrapper>
 
         <style.BackgroundImage>
-          <img src="./images/season-4-img-2.png" alt="" />
-          <img src="./images/season-4-bg-2.png" alt="" />
+          <img src="./images/season-2-2.jpg" alt="" />
           <style.HscLogo src="./images/white-logo.svg" />
         </style.BackgroundImage>
+
         <ShareGroup link={shareLink} />
       </style.Slide>
       <style.Slide>
-        <style.BackgroundLastImage>
-          <img src="./images/season-4-img-3.png" alt="" />
-          <img src="./images/season-4-bg-3.png" alt="" />
-        </style.BackgroundLastImage>
-      </style.Slide>
-      <style.Slide>
-        <style.BackgroundLastVideo>
-          <video className="videoTag" autoPlay loop muted onClick={handleBackHome}>
-            <source src="./images/ending-video.mp4" type="video/mp4" />
-          </video>
-        </style.BackgroundLastVideo>
+        <style.BackHomeArea onClick={handleBackHome} />
+        <style.BackgroundImage>
+          <img src="./images/season-2-3.jpg" alt="" />
+        </style.BackgroundImage>
+        <style.HscLogoHead src="./images/white-logo.svg" />
+        <ShareGroup link={shareLink} />
       </style.Slide>
     </style.StyledCarousel>
   );
 };
 
-export default SeasonPackage4;
+export default SeasonPackage2;

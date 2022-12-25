@@ -1,4 +1,4 @@
-import Carousel from "../Carousel";
+import Carousel from "./Carousel";
 import styled from "styled-components";
 const breakpoints = {
   xs: 0,
@@ -17,6 +17,14 @@ export const StyledCarousel = styled(Carousel)`
   // & > *:last-child {
   //   top: 5%;
   // }
+  &>span{
+    min-width:100% !important;
+    height:100% !important;
+    background:transparent !important;
+    &>span{
+        background:transparent !important;
+    }
+}
 `;
 
 export const Slide = styled.div`
@@ -34,7 +42,6 @@ export const Slide = styled.div`
     background: transparent;
   }
 `;
-
 export const BackgroundImage = styled.div`
   position: relative;
   overflow: hidden;
@@ -42,68 +49,20 @@ export const BackgroundImage = styled.div`
   width: 100%;
 
   & img {
-    position: absolute;
-    left: 50%;
     &:nth-child(1) {
-      top: 88px;
-      transform: translateX(-50%);
-      max-width: 320px;
-      width: 80%;
-      z-index: 1;
-    }
-    &:nth-child(2) {
+      position: absolute;
       top: 50%;
+      left: 50%;
       transform: translate(-50%, -50%);
-      width: 100%;
-      @media (min-width: 500px) {
-        width: auto;
-        height: 100%;
-      }
+      width: auto;
+      height: 100%;
     }
-  }
-  @media screen and (max-width: ${breakpoints.sm}px) {
-    & > img:first-child {
-      max-width: 240px;
-    }
-  }
-  @media (min-width: 500px) {
-    width: auto;
-    height: 100%;
   }
 `;
 
-export const BackgroundLastImage = styled.div`
-  position: relative;
-  overflow: hidden;
-  height: 100%;
-  width: 100%;
-
-  & img {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    &:nth-child(1) {
-      max-width: 480px;
-      width: 80%;
-      z-index: 1;
-    }
-    &:nth-child(2) {
-      width: 100%;
-      @media (min-width: 500px) {
-        width: auto;
-        height: 100%;
-      }
-    }
-  }
-  @media screen and (max-width: ${breakpoints.sm}px) {
-    & > img:first-child {
-      max-width: 240px;
-    }
-  }
-  @media (min-width: 500px) {
-    width: auto;
-    height: 100%;
+export const BackgroundLastImage = styled(BackgroundImage)`
+  & img{
+    z-index:1;
   }
 `;
 
@@ -112,14 +71,17 @@ export const ContentOuterWrapper = styled.div`
   border-radius: 8px;
   padding: 16px;
   width: 80%;
-  max-width: 460px;
+  max-width: 360px;
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  bottom: 620px;
+  bottom: 75%;
   box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.3),
     0 0.0625rem 0.125rem rgba(0, 0, 0, 0.2);
   z-index: 4;
+  @media screen and (max-width:${breakpoints.sm}px){
+    bottom:65%;
+  }
 `;
 
 export const Content = styled.div`
@@ -148,6 +110,7 @@ export const Content = styled.div`
     color: #3549ce;
     font-size: 16px;
     line-height: 1.2;
+    white-space:normal;
     &:first-child {
       margin-bottom: 8px;
     }
@@ -159,24 +122,31 @@ export const Content = styled.div`
 `;
 
 export const BackHomeArea = styled.div`
-  height: 120px;
-  width: 500px;
+  height: 200px;
+  width:100%;
+  max-width: 500px;
   position: absolute;
   content: "";
-  top: 640px;
+  bottom: 150px;
   left: 50%;
   background: none;
-  transform: translate(-50%, -50%);
+  transform: translateX(-50%);
   z-index: 3;
   cursor: pointer;
+  // border:1px solid #000;
+  // @media screen and (max-width:${breakpoints.sm}px){
+  //   bottom:120px;
+  // }
 `;
-
 export const HscLogo = styled.img`
-  height: 40px;
-  width: auto;
+height: 32px;
+width: auto;
   position: absolute;
-  left: calc(50% - 280px);
-  bottom: 32px;
+  left: calc(50% - 220px);
+  bottom: 24px;
+  @media screen and (max-width:${breakpoints.sm}px){
+    left:16px;
+  }
 `;
 
 export const BackgroundVideo = styled.div`
@@ -184,12 +154,23 @@ export const BackgroundVideo = styled.div`
   width: 100%;
 `;
 
-
 export const HscLogoHead = styled.img`
-  height: 40px;
+  height: 32px;
   width: auto;
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  top: 32px;
+  top: 24px;
+  z-index:4;
 `;
+
+export const BackgroundLastVideo = styled.div`
+& video{
+  position:absolute;
+  left:50%;
+  top:0;
+  height:100%;
+  width:auto;
+  transform:translateX(-50%);
+}`
+

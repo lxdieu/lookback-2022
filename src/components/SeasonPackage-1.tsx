@@ -1,9 +1,9 @@
 import React from "react";
 import { useRouter } from "next/router";
 import * as style from "./styles";
-import ShareGroup from "../ShareGroup";
+import ShareGroup from "./ShareGroup";
 
-const SeasonPackage2 = ({ data }) => {
+const SeasonPackage1 = ({ data }) => {
   const router = useRouter();
   const shareLink = `${window.location.origin}/?d=${router.query.d}`;
   const handleBackHome = () => {
@@ -14,47 +14,42 @@ const SeasonPackage2 = ({ data }) => {
     <style.StyledCarousel
       dot={{ sharp: "bar", playtimeEffect: true, placement: "t" }}
       navigation={{ type: "full" }}
-      autoPlayTime={600}
+      autoPlayTime={6}
     >
       <style.Slide>
         <style.ContentOuterWrapper>
           <style.Content>
-            <p className="big-text">{data.longest_stock}</p>
-            <p>được bạn `ôm` lâu nhất trong năm</p>
+            <p className="big-text">{data.first_stock}</p>
+            <p>là mã khớp lệnh khai xuân đầu năm của bạn</p>
           </style.Content>
         </style.ContentOuterWrapper>
 
         <style.BackgroundImage>
-          <img src="./images/season-2-img-1.png" alt="" />
-          <img src="./images/season-2-bg-1.png" alt="" />
+          <img src="./images/season-1-1.jpg" alt="" />
           <style.HscLogo src="./images/white-logo.svg" />
         </style.BackgroundImage>
-
         <ShareGroup link={shareLink} />
       </style.Slide>
 
       <style.Slide>
         <style.ContentOuterWrapper>
           <style.Content>
-            <p>và `ôm` trong</p>
-          <p className="big-text">{data.longest_hold_time}<span>ngày</span></p>
+            <p>Khớp lệnh vào ngày</p>
+            <p className="big-text">{data.first_date}</p>
           </style.Content>
         </style.ContentOuterWrapper>
 
         <style.BackgroundImage>
-          <img src="./images/season-2-img-2.png" alt="" />
-          <img src="./images/season-2-bg-2.png" alt="" />
+          <img src="./images/season-1-2.jpg" alt="" />
           <style.HscLogo src="./images/white-logo.svg" />
         </style.BackgroundImage>
-
         <ShareGroup link={shareLink} />
       </style.Slide>
       <style.Slide>
         <style.BackHomeArea onClick={handleBackHome} />
-        <style.BackgroundLastImage>
-          <img src="./images/season-2-img-3.png" alt="" />
-          <img src="./images/season-2-bg-3.png" alt="" />
-        </style.BackgroundLastImage>
+        <style.BackgroundImage>
+          <img src="./images/season-1-3.jpg" alt="" />
+        </style.BackgroundImage>
         <style.HscLogoHead src="./images/white-logo.svg" />
         <ShareGroup link={shareLink} />
       </style.Slide>
@@ -62,4 +57,4 @@ const SeasonPackage2 = ({ data }) => {
   );
 };
 
-export default SeasonPackage2;
+export default SeasonPackage1;

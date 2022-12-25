@@ -1,7 +1,16 @@
 import styled from "styled-components";
+const breakpoints = {
+  xs: 0,
+  sm: 567,
+  md: 768,
+  lg: 1279,
+  xl: 1439,
+  xxl: 1920,
+};
 export const Wrapper = styled.div`
   height: 100vh;
   width: 100vw;
+  background:#000;
 `;
 
 export const Images = styled.image`
@@ -18,9 +27,18 @@ export const Text = styled.p`
   text-align: center;
   color: #3d8014;
   font-size:18px;
+  z-index:1;
 `;
 
-export const PackCover = styled.div``;
+export const PackCover = styled.div`
+  width:calc(50% - 44px);
+  & img{
+    width:100%;
+  }
+  @media screen and (max-width:${breakpoints.sm}px){
+    width:calc(50% - 8px)
+  }
+`;
 
 export const ContentWrapper = styled.div`
   display: flex;
@@ -29,7 +47,7 @@ export const ContentWrapper = styled.div`
   position: relative;
   height: 100%;
   flex-direction: column;
-`;
+  `;
 
 export const ContentBackground = styled.img`
   position: absolute;
@@ -39,12 +57,12 @@ export const ContentBackground = styled.img`
   height: 100%;
   width: auto;
   margin: auto;
-  z-index: -1;
 `;
 export const Logo = styled.img`
   margin-bottom: 32px;
   margin-top: 32px;
   height: 32px;
+  z-index:1;
 `;
 
 export const ListCovers = styled.div`
@@ -52,11 +70,12 @@ export const ListCovers = styled.div`
   display: flex;
   flex-wrap: wrap;
   margin: auto;
-  max-width: 560px;
+  max-width: 480px;
   justify-content: center;
   align-items: center;
   padding: 32px 0;
   cursor:pointer;
+  z-index:1;
   > div {
     &:nth-child(-n + 2) {
       margin-bottom: 16px;
@@ -64,5 +83,8 @@ export const ListCovers = styled.div`
     &:nth-child(even) {
       margin-left: 16px;
     }
+  }
+  @media screend and (max-width:${breakpoints.sm}px){
+    
   }
 `;

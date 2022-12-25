@@ -102,33 +102,6 @@ const Carousel = ({
   };
 
   const childrenCount = React.Children.count(children);
-  const navigations = (() => {
-    if (navigation?.type === "full") {
-      return;
-    }
-    return (
-      <>
-        <span className={styles["sezy-carousel-prev"]} onClick={prevClick}>
-          {navigation?.Prev || (
-            <ChevronIcon
-              direction="left"
-              size={size}
-              isDisabled={!isInfinity && step === 1}
-            />
-          )}
-        </span>
-        <span className={styles["sezy-carousel-next"]} onClick={nextClick}>
-          {navigation?.Next || (
-            <ChevronIcon
-              direction="right"
-              size={size}
-              isDisabled={!isInfinity && step === childrenCount}
-            />
-          )}
-        </span>
-      </>
-    );
-  })();
 
   const dots = (() => {
     return (
@@ -199,7 +172,6 @@ const Carousel = ({
           });
         })}
       </div>
-      {navigations}
       {dots}
     </div>
   );
