@@ -19,7 +19,7 @@ const SeasonPackage2 = ({ data }) => {
       <style.Slide>
         <style.ContentOuterWrapper>
           <style.Content>
-            <p className="big-text">{data.longest_stock}</p>
+            <p className="big-text">{data.Hold_max_code?.trim()}</p>
             <p>được bạn &apos;ôm&apos; lâu nhất trong năm</p>
           </style.Content>
         </style.ContentOuterWrapper>
@@ -36,7 +36,7 @@ const SeasonPackage2 = ({ data }) => {
         <style.ContentOuterWrapper>
           <style.Content>
             <p>và &apos;ôm&apos; trong</p>
-          <p className="big-text">{data.longest_hold_time} <span>ngày</span></p>
+          <p className="big-text">{data.Hold_Day?.trim()} <span>ngày</span></p>
           </style.Content>
         </style.ContentOuterWrapper>
 

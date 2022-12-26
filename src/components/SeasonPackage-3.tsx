@@ -19,7 +19,7 @@ const SeasonPackage3 = ({ data }) => {
       <style.Slide>
         <style.ContentOuterWrapper>
           <style.Content>
-            <p className="big-text">{data.largest_stock}</p>
+            <p className="big-text">{data.Position_max_code?.trim()}</p>
             <p>rất được &apos;ưu ái&apos; chiếm tỷ trọng nhiều nhất trong danh mục</p>
           </style.Content>
         </style.ContentOuterWrapper>
@@ -35,7 +35,7 @@ const SeasonPackage3 = ({ data }) => {
       <style.Slide>
         <style.ContentOuterWrapper>
           <style.Content>
-            <p className="big-text">{data.smallest_stock}</p>
+            <p className="big-text">{data.Position_min_code?.trim()}</p>
             <p>chiếm tỷ trọng ít nhất trong danh mục</p>
           </style.Content>
         </style.ContentOuterWrapper>

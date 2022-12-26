@@ -21,7 +21,7 @@ const Opening = ({ handleSelectPack, data, packOpened }) => {
         <style.ContentBackground src="images/opening-bg.png" />
         <style.Logo src="images/logo.svg" />
         <style.Text>
-          Xin chào <style.TextBold>{data.name}</style.TextBold>
+          Xin chào <style.TextBold>{data.AccountName?.trim()}</style.TextBold>
         </style.Text>
         <style.Text>Hãy chọn bất kỳ bao lì xì bạn muốn nhé!</style.Text>
         <style.ListCovers>{renderCover}</style.ListCovers>

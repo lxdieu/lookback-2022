@@ -19,7 +19,7 @@ const SeasonPackage1 = ({ data }) => {
       <style.Slide>
         <style.ContentOuterWrapper>
           <style.Content>
-            <p className="big-text">{data.first_stock}</p>
+            <p className="big-text">{data.Start_code?.trim()}</p>
             <p>là mã khớp lệnh khai xuân đầu năm của bạn</p>
           </style.Content>
         </style.ContentOuterWrapper>
@@ -35,7 +35,7 @@ const SeasonPackage1 = ({ data }) => {
         <style.ContentOuterWrapper>
           <style.Content>
             <p>Khớp lệnh vào ngày</p>
-            <p className="big-text">{data.first_date}</p>
+            <p className="big-text">{data.Start_code_date?.trim()}</p>
           </style.Content>
         </style.ContentOuterWrapper>
 

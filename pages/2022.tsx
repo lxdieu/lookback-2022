@@ -20,33 +20,32 @@ const Home: NextPage = () => {
         return null;
       }
     })();
-  console.log(data);
-  const examData: ICustomerData = {
-    name: "Lã Xuân Diệu",
-    email: "dieu.lx@hsc.com.vn",
-    id: "002990",
-    first_stock: "HCM",
-    first_date: "22/06/2022",
-    longest_stock: "HCM",
-    longest_hold_time: 256,
-    largest_stock: "HPG",
-    smallest_stock: "NVL",
-    lastest_stock: "NVL",
-    lastest_date: "30/12/2022",
-  };
+  // const examData: ICustomerData = {
+  //   name: "Lã Xuân Diệu",
+  //   email: "dieu.lx@hsc.com.vn",
+  //   id: "002990",
+  //   first_stock: "HCM",
+  //   first_date: "22/06/2022",
+  //   longest_stock: "HCM",
+  //   longest_hold_time: 256,
+  //   largest_stock: "HPG",
+  //   smallest_stock: "NVL",
+  //   lastest_stock: "NVL",
+  //   lastest_date: "30/12/2022",
+  // };
 
   //data to base 64
-  const words = CryptoJS.enc.Utf8.parse(JSON.stringify(examData)); // WordArray object
-  const base64 = CryptoJS.enc.Base64.stringify(words); // string: 'SGVsbG8gd29ybGQ='
+  // const words = CryptoJS.enc.Utf8.parse(JSON.stringify(examData)); // WordArray object
+  // const base64 = CryptoJS.enc.Base64.stringify(words); // string: 'SGVsbG8gd29ybGQ='
 
   //base64 to data
-  const wordsDecrypted = CryptoJS.enc.Base64.parse(base64);
-  var resultString = CryptoJS.enc.Utf8.stringify(wordsDecrypted);
+  // const wordsDecrypted = CryptoJS.enc.Base64.parse(base64);
+  // var resultString = CryptoJS.enc.Utf8.stringify(wordsDecrypted);
 
   return (
     <>
       <Head>
-        <title>Cùng HSC nhìn lại 1 năm đầu tư 2022 của {data?.name}</title>
+        <title>Cùng HSC nhìn lại 1 năm đầu tư 2022 của {data?.AccountName?.trim()}</title>
         <meta property="fb:app_id" content="470827294432629" />
         <meta
           property="og:title"

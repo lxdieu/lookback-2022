@@ -13,7 +13,9 @@ const HomePage = ({ data }) => {
 
   useEffect(() => {
     try {
-      const lsOpenedPack = window.localStorage.getItem("open_pack");
+      const lsOpenedPack = window.localStorage.getItem(
+        process.env.NEXT_PUBLIC_STORAGE_KEY
+      );
       const parsed = lsOpenedPack ? JSON.parse(lsOpenedPack) : [];
       setPackOpened(parsed);
     } catch (e) {
@@ -24,7 +26,7 @@ const HomePage = ({ data }) => {
   const handleSelectPack = (id: number) => {
     if (packOpened && !packOpened.includes(id)) {
       window.localStorage.setItem(
-        "open_pack",
+        process.env.NEXT_PUBLIC_STORAGE_KEY,
         JSON.stringify([...packOpened, id])
       );
       setPackOpened([...packOpened, id]);
