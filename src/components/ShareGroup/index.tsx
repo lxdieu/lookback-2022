@@ -41,7 +41,9 @@ const ShareGroup = ({ link }) => {
             className="zalo-share-button"
             data-href="${url}"
             data-oaid="2429252483303962412"
-            data-customize="false"
+            data-customize="true"
+            data-layout="4"
+            data-color="blue"
             style={{ marginRight: 8 }}
           >
             <Style.SingleIcon src="images/zalo-icon.svg" />

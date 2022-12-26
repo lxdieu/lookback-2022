@@ -64,7 +64,7 @@ const Home: NextPage = () => {
           property="og:image"
           content={`${process.env.ROOT_URL ?? ""}${
             router.basePath
-          }/images/lookback2021/THUMBNAIL-LOOKBACK-2021.png`}
+          }/images/thumbnail-2022.jpg`}
         />
         <meta property="og:image:width" content="720" />
         <meta property="og:image:height" content="480" />
