@@ -8,8 +8,8 @@ const breakpoints = {
   xxl: 1920,
 };
 export const Wrapper = styled.div`
-  height: 100vh;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
   background:#000;
 `;
 
