@@ -35,7 +35,7 @@ export const CopyNoti = styled.div`
   border-radius:8px;
   padding:8px;
   position:absolute;
-  top:-36px;
+  top:-100px;
   left:calc(50% + 16px);
   opacity:${props => props.isShow ? 1 : 0};
   transition: opacity 0.3s;

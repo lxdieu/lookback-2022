@@ -16,8 +16,6 @@ const ShareGroup = () => {
   const handleClickShare = () => {
     const shareElem = shareRef.current;
     if(shareElem){
-      const shareRect = shareElem.getBoundingClientRect();
-      console.log(shareRect);
       if(sharePos.top === -999){
         setSharePos({
           top:-60,
@@ -74,9 +72,9 @@ const ShareGroup = () => {
           onClick={handleClickShare}
           ref={shareRef}
         />
-        {/* <Style.CopyNoti isShow={isShow}>
+        <Style.CopyNoti isShow={isShow}>
           <p>Copied</p>
-        </Style.CopyNoti> */}
+        </Style.CopyNoti>
       </Style.Wrapper>
       <Script src="https://sp.zalo.me/plugins/sdk.js" />
     </React.Fragment>
