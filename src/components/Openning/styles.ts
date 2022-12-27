@@ -1,6 +1,6 @@
 import styled from "styled-components";
 const breakpoints = {
-  xs: 0,
+  xs: 400,
   sm: 567,
   md: 768,
   lg: 1279,
@@ -30,6 +30,9 @@ export const Text = styled.p`
   line-height:1.2;
   z-index:1;
   margin-bottom:8px;
+  @media screen and (max-width:${breakpoints.sm}px){
+    font-size:18px;
+  }
 `;
 
 export const PackCover = styled.div`
@@ -65,6 +68,10 @@ export const Logo = styled.img`
   margin-top: 32px;
   height: 32px;
   z-index:1;
+  @media screen and (max-width:${breakpoints.md}px){
+    margin-bottom:32px;
+    margin-top:0px;
+  }
 `;
 
 export const ListCovers = styled.div`
@@ -72,8 +79,9 @@ export const ListCovers = styled.div`
   display: flex;
   flex-wrap: wrap;
   max-width: 480px;
-  justify-content: center;
-  align-items: center;
+  margin:0 auto;
+  justify-content: space-evenly;
+  align-items: flex-start;
   padding: 32px 0;
   cursor:pointer;
   z-index:1;
