@@ -3,7 +3,6 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import CryptoJS from "crypto-js";
-import { ICustomerData } from "src/interface";
 import HomePage from "src/components/Homepage";
 import NoData from "src/components/NoData";
 
@@ -45,7 +44,9 @@ const Home: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Cùng HSC nhìn lại 1 năm đầu tư 2022 của {data?.AccountName?.trim()}</title>
+        <title>
+          Cùng HSC nhìn lại 1 năm đầu tư 2022 của {data?.AccountName?.trim()}
+        </title>
         <meta property="fb:app_id" content="470827294432629" />
         <meta
           property="og:title"
@@ -70,9 +71,9 @@ const Home: NextPage = () => {
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link
-          href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap"
           rel="stylesheet"
-        ></link>
+        />
       </Head>
       {data ? <HomePage data={data} /> : <NoData />}
     </>

@@ -12,7 +12,6 @@ const breakpoints = {
 export const StyledCarousel = styled(Carousel)`
   width: 100%;
   height: 100%;
-  font-family: "Roboto";
   background: black;
   // & > *:last-child {
   //   top: 5%;
@@ -29,7 +28,6 @@ export const StyledCarousel = styled(Carousel)`
 
 export const Slide = styled.div`
   background: transparent !important;
-  font-family: "Roboto";
   & > span {
     min-width: 100% !important;
     height: 100% !important;
@@ -108,15 +106,15 @@ export const Content = styled.div`
   p {
     display: block;
     color: #3549ce;
-    font-size: 16px;
+    font-size: 24px;
     line-height: 1.2;
     white-space:normal;
     &:first-child {
       margin-bottom: 8px;
     }
     &.big-text {
-      font-size: 24px;
-      font-weight: 700;
+      font-size: 28px;
+      font-weight: 900;
     }
   }
 `;
@@ -142,12 +140,8 @@ export const HscLogo = styled.img`
 height: 32px;
 width: auto;
   position: absolute;
-  left: calc(50% - 220px);
-  bottom: 24px;
-  @media screen and (max-width:${breakpoints.sm}px){
-    left:16px;
-  }
-`;
+  bottom: 32px;
+  `;
 
 export const BackgroundVideo = styled.div`
   height: 100%;

@@ -7,6 +7,8 @@ export const ShareList = styled.div`
   display:flex;
   background:rgba(0,0,0,0.3);
   margin-bottom:12px;
+  opacity:${props => props.isShow ? 1 : 0};
+  transition: opacity 0.3s;
   & a{
     margin-right:8px;
   }
@@ -24,7 +26,7 @@ align-items:center;
 position:absolute;
 left:50%;
 transform:translateX(-50%);
-bottom:24px;
+bottom:32px;
 z-index:2;
 `
 export const SingleIcon = styled.img`
@@ -33,14 +35,13 @@ height:40px;
 cursor:pointer;
 border-radius:40px;`
 
-
 export const CopyNoti = styled.div`
   background:rgba(0,0,0,0.5);
   border-radius:8px;
-  padding:14px;
+  padding:8px;
   position:absolute;
-  top:-40px;
-  left:calc(50% + 12px);
+  top:-36px;
+  left:calc(50% + 16px);
   opacity:${props => props.isShow ? 1 : 0};
   transition: opacity 0.3s;
   color:#fff

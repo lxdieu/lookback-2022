@@ -1,17 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import * as Style from "./styles";
 import { useRouter } from "next/router";
 import Script from "next/script";
-import ZaloShareButton from "./ZaloShareButton";
-const ShareGroup = ({ link }) => {
+
+const ShareGroup = () => {
   const router = useRouter();
   const [isShow, setIsShow] = useState<boolean>(false);
-  const handleShare = (e) => {
-    if (navigator.share) {
-      navigator.share({
-        url: link,
-      });
-    }
+  const [sharePos, setSharePos] = useState<number>(-200);
+  const shareLink = `${window.location.origin}/?d=${router.query.d}`;
+  const handleClickShare = () => {
+    setSharePos((old) => {
+      if (old < 0) {
+        return 1;
+      }
+      return -200;
+    });
   };
 
   const handleCopyUrl = () => {
@@ -27,24 +30,23 @@ const ShareGroup = ({ link }) => {
   return (
     <React.Fragment>
       <Style.Wrapper>
-        <Style.ShareList>
+        <Style.ShareList isShow={!!(sharePos > 0)} style={{ bottom: sharePos }}>
           <a
-            href={`https://www.facebook.com/sharer/sharer.php?u=${link}`}
+            style={{ height: 40 }}
+            href={`https://www.facebook.com/sharer/sharer.php?u=${shareLink}`}
             target="_blank"
             rel="noreferrer"
           >
             <Style.SingleIcon src="images/fb-icon.svg" />
           </a>
-
-          {/* <ZaloShareButton url={link} /> */}
           <div
             className="zalo-share-button"
-            data-href="${url}"
+            data-href={shareLink}
             data-oaid="2429252483303962412"
             data-customize="true"
             data-layout="4"
             data-color="blue"
-            style={{ marginRight: 8 }}
+            style={{ height: 40, marginRight: 8 }}
           >
             <Style.SingleIcon src="images/zalo-icon.svg" />
           </div>
@@ -53,7 +55,10 @@ const ShareGroup = ({ link }) => {
             onClick={handleCopyUrl}
           />
         </Style.ShareList>
-        <Style.SingleIcon src="images/share-icon.svg" onClick={handleShare} />
+        <Style.SingleIcon
+          src="images/share-icon.svg"
+          onClick={handleClickShare}
+        />
         <Style.CopyNoti isShow={isShow}>
           <p>Copied</p>
         </Style.CopyNoti>

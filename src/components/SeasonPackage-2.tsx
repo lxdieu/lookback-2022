@@ -1,14 +1,18 @@
-import React from "react";
-import { useRouter } from "next/router";
+import React, { useState, useRef, useEffect } from "react";
 import * as style from "./styles";
-import ShareGroup from "./ShareGroup";
+import { loadImage } from "src/util/helper";
 
-const SeasonPackage2 = ({ data }) => {
-  const router = useRouter();
-  const shareLink = `${window.location.origin}/?d=${router.query.d}`;
-  const handleBackHome = () => {
-    router.back();
-  };
+const SeasonPackage2 = ({ data, handleBackHome }) => {
+  const [logoPos, setLogoPos] = useState(0);
+  const imgRef = useRef(null);
+  useEffect(() => {
+    loadImage("./images/season-2-1.jpg").then((img) => {
+      const imgElem = imgRef.current;
+      if (imgElem) {
+        setLogoPos(imgElem.clientWidth / 2 - 16);
+      }
+    });
+  }, []);
 
   return (
     <style.StyledCarousel
@@ -25,27 +29,35 @@ const SeasonPackage2 = ({ data }) => {
         </style.ContentOuterWrapper>
 
         <style.BackgroundImage>
-          <img src="./images/season-2-1.jpg" alt="" />
-          <style.HscLogo src="./images/white-logo.svg" />
+          <img src="./images/season-2-1.jpg" alt="" ref={imgRef}/>
+          <style.HscLogo
+            src="./images/white-logo.svg"
+            style={{ left: `calc(50% - ${logoPos}px)` }}
+          />
         </style.BackgroundImage>
 
-        <ShareGroup link={shareLink} />
+        {/* <ShareGroup /> */}
       </style.Slide>
 
       <style.Slide>
         <style.ContentOuterWrapper>
           <style.Content>
             <p>và &apos;ôm&apos; trong</p>
-          <p className="big-text">{data.Hold_Day?.trim()} <span>ngày</span></p>
+            <p className="big-text">
+              {data.Hold_Day?.trim()} <span>ngày</span>
+            </p>
           </style.Content>
         </style.ContentOuterWrapper>
 
         <style.BackgroundImage>
           <img src="./images/season-2-2.jpg" alt="" />
-          <style.HscLogo src="./images/white-logo.svg" />
+          <style.HscLogo
+            src="./images/white-logo.svg"
+            style={{ left: `calc(50% - ${logoPos}px)` }}
+          />
         </style.BackgroundImage>
 
-        <ShareGroup link={shareLink} />
+        {/* <ShareGroup /> */}
       </style.Slide>
       <style.Slide>
         <style.BackHomeArea onClick={handleBackHome} />
@@ -53,7 +65,7 @@ const SeasonPackage2 = ({ data }) => {
           <img src="./images/season-2-3.jpg" alt="" />
         </style.BackgroundImage>
         <style.HscLogoHead src="./images/white-logo.svg" />
-        <ShareGroup link={shareLink} />
+        {/* <ShareGroup /> */}
       </style.Slide>
     </style.StyledCarousel>
   );

@@ -20,14 +20,16 @@ export const Images = styled.image`
 `;
 
 export const TextBold = styled.span`
-  font-weight: 700;
+  font-weight: 900;
 `;
 
 export const Text = styled.p`
   text-align: center;
   color: #3d8014;
-  font-size:18px;
+  font-size:24px;
+  line-height:1.2;
   z-index:1;
+  margin-bottom:8px;
 `;
 
 export const PackCover = styled.div`
@@ -59,7 +61,7 @@ export const ContentBackground = styled.img`
   margin: auto;
 `;
 export const Logo = styled.img`
-  margin-bottom: 32px;
+  margin-bottom: 64px;
   margin-top: 32px;
   height: 32px;
   z-index:1;
