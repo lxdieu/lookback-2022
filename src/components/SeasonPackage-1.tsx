@@ -18,7 +18,7 @@ const SeasonPackage1 = ({ data, handleBackHome }) => {
     <style.StyledCarousel
       dot={{ sharp: "bar", playtimeEffect: true, placement: "t" }}
       navigation={{ type: "full" }}
-      autoPlayTime={6000}
+      autoPlayTime={6}
     >
       <style.Slide>
         <style.ContentOuterWrapper>
