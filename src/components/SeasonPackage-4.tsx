@@ -9,7 +9,7 @@ const SeasonPackage4 = ({ data, handleBackHome }) => {
     loadImage("./images/season-4-1.jpg").then((img) => {
       const imgElem = imgRef.current;
       if (imgElem) {
-        setLogoPos(imgElem.clientWidth / 2 - 16);
+        setLogoPos(Math.min(window.innerWidth, imgElem.clientWidth) / 2 - 16);
       }
     });
   }, []);
