@@ -7,9 +7,10 @@ const SeasonPackage1 = ({ data, handleBackHome }) => {
   const imgRef = useRef(null);
   useEffect(() => {
     loadImage("./images/season-1-1.jpg").then((img) => {
+      
       const imgElem = imgRef.current;
       if (imgElem) {
-        setLogoPos(imgElem.clientWidth / 2 - 16);
+        setLogoPos(Math.min(window.innerWidth, imgElem.clientWidth) / 2 - 16);
       }
     });
   }, []);

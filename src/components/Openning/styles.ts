@@ -71,7 +71,6 @@ export const ListCovers = styled.div`
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-  margin: auto;
   max-width: 480px;
   justify-content: center;
   align-items: center;

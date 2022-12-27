@@ -1,20 +1,34 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import * as Style from "./styles";
 import { useRouter } from "next/router";
 import Script from "next/script";
 
+interface IPos {
+  top:number,
+  left:number
+}
 const ShareGroup = () => {
   const router = useRouter();
+  const shareRef = useRef(null);
   const [isShow, setIsShow] = useState<boolean>(false);
-  const [sharePos, setSharePos] = useState<number>(-200);
+  const [sharePos, setSharePos] = useState<IPos>({top:-999, left:-999});
   const shareLink = `${window.location.origin}/?d=${router.query.d}`;
   const handleClickShare = () => {
-    setSharePos((old) => {
-      if (old < 0) {
-        return 1;
+    const shareElem = shareRef.current;
+    if(shareElem){
+      const shareRect = shareElem.getBoundingClientRect();
+      console.log(shareRect);
+      if(sharePos.top === -999){
+        setSharePos({
+          top:-60,
+          left:-52
+        })
       }
-      return -200;
-    });
+      else{
+        setSharePos({top:-999,left:-999})
+      }
+    }
+    
   };
 
   const handleCopyUrl = () => {
@@ -30,7 +44,7 @@ const ShareGroup = () => {
   return (
     <React.Fragment>
       <Style.Wrapper>
-        <Style.ShareList isShow={!!(sharePos > 0)} style={{ bottom: sharePos }}>
+        <Style.ShareList isShow={!!(sharePos.top !== -999)} style={sharePos}>
           <a
             style={{ height: 40 }}
             href={`https://www.facebook.com/sharer/sharer.php?u=${shareLink}`}
@@ -58,10 +72,11 @@ const ShareGroup = () => {
         <Style.SingleIcon
           src="images/share-icon.svg"
           onClick={handleClickShare}
+          ref={shareRef}
         />
-        <Style.CopyNoti isShow={isShow}>
+        {/* <Style.CopyNoti isShow={isShow}>
           <p>Copied</p>
-        </Style.CopyNoti>
+        </Style.CopyNoti> */}
       </Style.Wrapper>
       <Script src="https://sp.zalo.me/plugins/sdk.js" />
     </React.Fragment>

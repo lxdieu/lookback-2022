@@ -1,6 +1,6 @@
 import styled from "styled-components";
 export const ShareList = styled.div`
-  position:relative;
+  position:fixed;
   width:auto;
   padding:6px;
   border-radius:40px;
@@ -18,11 +18,6 @@ export const ShareList = styled.div`
 `;
 
 export const Wrapper = styled.div`
-width:100%;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
 position:absolute;
 left:50%;
 transform:translateX(-50%);
