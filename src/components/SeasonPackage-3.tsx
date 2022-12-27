@@ -65,7 +65,6 @@ const SeasonPackage3 = ({ data, handleBackHome }) => {
         <style.BackgroundImage>
           <img src="./images/season-3-3.jpg" alt="" />
         </style.BackgroundImage>
-        <style.HscLogoHead src="./images/white-logo.svg" />
         {/* <ShareGroup /> */}
       </style.Slide>
     </style.StyledCarousel>
